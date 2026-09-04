@@ -69,10 +69,12 @@ mkdir result
 
 ###
 ls $input_dir/*gz | xargs fastqc -o fastqc/ -t 12
-####
+####use fastp to remove adapter contamination and low quality reads
 for i in *_R1.fq.gz ; do fastp -i $i -I ${i%_*}_R2.fq.gz -o 01.cleanData/${i%%_*}_clean_R1.fq.gz  -O 01.cleanData/${i%%_*}_clean_R2.fq.gz --thread=16 --complexity_threshold=30 –n_base_limit=5 -l 50 -g -x -F 30 -f 3 ; done
 
-###
+###After adapter trimming, bowtie2 for mapping to reference genome
+###samtools change sam files to bam files, sort and index bam files
+### picard remove PCR duplcate reads
 cd 01.cleanData
 
 ls *clean_R2.fq.gz | sed 's/_clean_R2.fq.gz//' > list_clean
@@ -96,7 +98,7 @@ for i in *.bam ; do
     samtools flagstat ${i%.*}_last.bam -@ $thread > ${i%.*}_last.bam.flagstat
     rm ${i}.bam
 done
-
+###Remove temp files
 rm *-1.bam *-2.bam *dup.bam ${i%.*}_dup.bam.bai
 
 echo "trim_and_mapping:   ...done!"
