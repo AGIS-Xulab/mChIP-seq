@@ -7,6 +7,8 @@ Input_files=`ls *bam`
 cd ${Treat_path}
 Treat_files=`ls *bam`
 
+###sicer for peak calling
+###Input file as control to remove possilbe false positive peaks
 for treat in $Treat_files;do
 #####	Input="Input"
 	for input in ${Input_files};do
