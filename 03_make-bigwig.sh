@@ -52,7 +52,7 @@ then
         exit 2
 fi 
 
-
+####bamCoverage in deeptools for signal normalization and bigWig preparation 
 for i in *_dup.bam ;do
 
          bamCoverage -v -p $thread -b $i -o ${i%.*}.bw -bs 10 --effectiveGenomeSize $effectiveGenomeSize --normalizeUsing RPGC
