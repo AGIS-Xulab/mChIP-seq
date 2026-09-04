@@ -56,6 +56,7 @@ fi
 
 ###demultiplexing fastq files
 ###Sequences of BC in Read2 5'end were used
+###barcode file includes BC sequences that should be complementary reverse to sequences of Adapter
 echo "Processing demultiplexing..."
 fastq-multx -B ${barcode_file} ${input_dir}/*_R2.fq.gz ${input_dir}/*_R1.fq.gz -m 0 -b -x -o ${output_dir}/%_R2.fastq -o ${output_dir}/%_R1.fastq > ${output_dir}/fastq-multx.info 2>&1
 
