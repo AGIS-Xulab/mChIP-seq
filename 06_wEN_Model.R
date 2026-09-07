@@ -1,6 +1,8 @@
 ################################################################################
 ################################################################################
 #####
+#####R script for weighted Elastic Net machine learning model construction using fragment size data
+
 ###set up directory
 setwd("path to/05-combine_bin")
 
