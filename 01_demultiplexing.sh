@@ -2,7 +2,9 @@
 
 
 # Setting default parameter values
+###raw fastq files (R1 and R2) in input_dir, PE sequencing 
 input_dir=$PWD
+###store fastq files after demultiplexing
 output_dir=$PWD
 
 # Reading in arguments
