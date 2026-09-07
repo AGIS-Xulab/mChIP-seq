@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
+##shell script to analyze plasma cell-free DNA fragment size in 5 Mb bin
 #######################################################################
 ########################## filter bam files ###########################
 
