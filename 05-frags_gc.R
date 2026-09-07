@@ -1,3 +1,5 @@
+###GC bias correction and  filtering out cfDNA fragments from problematic regions of the reference genome
+###Refer to https://www.cell.com/star-protocols/fulltext/S2666-1667(24)00522-7
 library(tidyverse)
 library(ggplot2)
 
